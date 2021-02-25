@@ -1,7 +1,10 @@
 import java.awt.EventQueue
+import java.awt.event.KeyAdapter
+import java.awt.event.KeyEvent
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
 import javax.swing.JFrame
+
 
 class Main(title: String) : JFrame() {
 
@@ -25,7 +28,13 @@ private fun createAndShowGUI() {
     frame.isVisible = true
     frame.addMouseListener(object : MouseAdapter() {
         override fun mouseClicked(e: MouseEvent) {
-            println("clicked at " + e.point)
+            println("clicked at " + e.point + ".")
+        }
+    })
+
+    frame.addKeyListener(object : KeyAdapter() {
+        override fun keyPressed(e: KeyEvent) {
+        println(e.keyChar + " was pressed.")
         }
     })
 }
